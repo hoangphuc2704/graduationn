@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Thư Mời Tốt Nghiệp · Hoàng Phúc</title>
+  <meta name="description"
+    content="Thư mời dự lễ tốt nghiệp của Nguyễn Bùi Hoàng Phúc, Kỹ thuật Phần mềm, Đại học FPT TP.HCM, ngày 07.11.2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Mali:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="sky-bg" aria-hidden="true"><canvas id="sky"></canvas></div>
+  <div class="floaters" id="floaters" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="stage" id="stage" hidden aria-hidden="true">
+    <div class="stage-dim"></div>
+    <div class="stage-rays"></div>
+    <div class="stage-ring"></div>
+    <div class="stage-card" id="stageCard">
+      <div class="sc-shake">
+        <div class="sc-flip">
+          <div class="sc-face sc-back"><svg viewBox="0 0 200 330">
+              <use href="#cardBack" />
+            </svg><span class="sc-light"></span></div>
+          <div class="sc-face sc-front" hidden><span class="sc-light"></span></div>
+        </div>
+      </div>
+    </div>
+    <p class="stage-caption">Đang mở thư mời tốt nghiệp…</p>
+    <div class="stage-flash"></div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="scene" id="scene" aria-hidden="true">
+      <div class="layer" style="--d:8">
+        <div class="tech-glow"></div>
+        <span class="bubble" style="--bc:#F26F21;--s:72px;left:12%;top:24%;animation-delay:-2s"></span>
+        <span class="bubble" style="--bc:#38BDF8;--s:52px;right:18%;top:18%;animation-delay:-5s"></span>
+        <span class="bubble" style="--bc:#F26F21;--s:36px;left:24%;top:58%;animation-delay:-3s"></span>
+        <span class="bubble" style="--bc:#38BDF8;--s:96px;right:8%;top:42%;animation-delay:-7s"></span>
+        <span class="bubble" style="--bc:#FFFFFF;--s:26px;left:30%;top:12%;animation-delay:-1s"></span>
+      </div>
+      <div class="layer" style="--d:36">
+        <svg class="cloud-band">
+          <use href="#cloudBand" width="100%" height="100%" />
+        </svg>
+      </div>
+    </div>
+    <div class="wrap hero-inner">
+      <h1 class="sr-only" id="heroTitle">Thư mời tốt nghiệp của Nguyễn Bùi Hoàng Phúc</h1>
+      <div class="logo-wrap" id="logoWrap">
+        <svg class="logo" id="logo" viewBox="0 0 1000 360" aria-hidden="true">
+          <defs>
+            <linearGradient id="gLogo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F26F21" />
+              <stop offset=".48" stop-color="#FFFFFF" />
+              <stop offset="1" stop-color="#F26F21" />
+            </linearGradient>
+          </defs>
+          <g transform="rotate(-5 500 180)" font-family="'Baloo 2','Nunito',sans-serif" font-weight="800"
+            text-anchor="middle" stroke-linejoin="round">
+            <g fill="#0F172A" stroke="#0F172A" stroke-width="26" transform="translate(0 12)">
+              <text x="500" y="150" font-size="124">Thư Mời</text>
+              <text x="500" y="310" font-size="150">Tốt Nghiệp</text>
+            </g>
+            <g fill="url(#gLogo)" stroke="#0F172A" stroke-width="24" paint-order="stroke">
+              <text x="500" y="150" font-size="124">Thư Mời</text>
+              <text x="500" y="310" font-size="150">Tốt Nghiệp</text>
+            </g>
+          </g>
+        </svg>
+        <svg class="quill" viewBox="0 0 262 120" aria-hidden="true">
+          <use href="#quill" />
+        </svg>
+      </div>
+
+      <div class="table" id="table">
+        <svg class="book" viewBox="0 0 1000 432" aria-hidden="true">
+          <use href="#book" />
+        </svg>
+        <div id="deck"></div>
+        <div class="portrait" id="portrait" aria-hidden="true">
+          <div class="tcard">
+            <svg viewBox="0 0 200 330" aria-hidden="true">
+              <use href="#cardPhoto" />
+            </svg>
+            <label class="photo-slot tc-photo" data-slot="chan-dung" data-src="assets/images/chan-dung.jpg"
+              data-label="Ảnh chân dung"></label>
+            <svg class="sticker" viewBox="0 0 60 60" aria-hidden="true">
+              <use href="#stickerStar" />
+            </svg>
+            <span class="tc-title">Tân Cử Nhân 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="welcome" id="welcome">
+        <p class="welcome-top">Chào mừng bạn đến với</p>
+        <p class="welcome-pill">thư mời của Hoàng Phúc!</p>
+        <p class="hint"><svg viewBox="0 0 40 40" aria-hidden="true">
+            <use href="#spark" />
+          </svg>Chọn một thẻ để mở thư mời nhé!</p>
+      </div>
+      <div class="after" id="after" hidden>
+        <div class="welcome">
+          <p class="welcome-top">Kỹ thuật Phần mềm · Đại học FPT TP.HCM</p>
+          <a class="welcome-pill" href="#loi-cam-on">Cuộn xuống xem thư mời ↓</a>
+        </div>
+        <div class="after-row">
+          <button class="reshuffle" id="reshuffle" type="button">Chọn lại thẻ ↻</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section thanks" id="loi-cam-on">
+      <div class="wrap">
+        <div class="scroll-card">
+          <svg class="doodle" viewBox="0 0 40 40" style="width:34px;right:5%;top:9%" aria-hidden="true">
+            <use href="#heart" />
+          </svg>
+          <svg class="doodle" viewBox="0 0 40 40" style="width:28px;right:4%;bottom:6%" aria-hidden="true">
+            <use href="#spark" />
+          </svg>
+          <figure class="polaroid" style="--rot:-4deg;--tape:3deg">
+            <label class="photo-slot" data-slot="tan-cu-nhan" data-src="assets/images/tan-cu-nhan.jpg"
+              data-pos="50% 18%" data-label="Ảnh tân cử nhân"></label>
+            <figcaption>Tân cử nhân 2026</figcaption>
+          </figure>
+          <div class="thanks-text">
+            <h2 class="ink-h">Lời cảm ơn</h2>
+            <p>Những năm học Kỹ thuật Phần mềm ở Đại học FPT là quãng thời gian mình lớn lên nhiều nhất. Có những đêm
+              chạy deadline, những đồ án làm chung tới sáng, và cả những lúc mình muốn dừng lại.</p>
+            <p>Cảm ơn bố mẹ và gia đình đã luôn tin mình. Cảm ơn thầy cô đã kiên nhẫn chỉ dạy từ những dòng code đầu
+              tiên. Cảm ơn bạn bè đã cùng mình qua từng kỳ học, từng buổi bảo vệ.</p>
+            <p class="magic">Nếu có điều kỳ diệu nhất trong suốt chặng đường này, đó chính là sự đồng hành của mọi
+              người.</p>
+            <p class="sign">Hoàng Phúc</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section spread" id="trai-bai">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker">Hành trình sinh viên</p>
+          <h2 class="pop">3 Cột mốc đáng nhớ</h2>
+        </div>
+        <ol class="spread-list">
+          <li class="spread-item">
+            <p class="pos">Chặng đường 01</p>
+            <div class="tcard">
+              <svg viewBox="0 0 200 330" aria-hidden="true">
+                <use href="#cardPhoto" />
+              </svg>
+              <label class="photo-slot tc-photo" data-slot="thoi-sinh-vien" data-src="assets/images/thoi-sinh-vien.jpg"
+                data-label="Ảnh thời sinh viên"></label>
+              <svg class="sticker" viewBox="0 0 60 60" aria-hidden="true">
+                <use href="#stickerStar" />
+              </svg>
+              <span class="tc-title">Thời Sinh Viên</span>
+            </div>
+            <div class="spread-text">
+              <h3>Học tập & Rèn luyện</h3>
+              <p>Những năm tháng chuyên ngành Kỹ thuật Phần mềm tại FPT University.</p>
+            </div>
+          </li>
+          <li class="spread-item">
+            <p class="pos">Chặng đường 02</p>
+            <div class="tcard">
+              <svg viewBox="0 0 200 330" aria-hidden="true">
+                <use href="#cardPhoto" />
+              </svg>
+              <label class="photo-slot tc-photo" data-slot="ao-cu-nhan" data-src="assets/images/ao-cu-nhan.jpg"
+                data-label="Ảnh mặc áo cử nhân"></label>
+              <svg class="sticker left" viewBox="0 0 60 60" aria-hidden="true">
+                <use href="#stickerSun" />
+              </svg>
+              <span class="tc-title">Lễ Tốt Nghiệp</span>
+            </div>
+            <div class="spread-text">
+              <h3>Thành quả & Vinh danh</h3>
+              <p>Ngày 07.11.2026, chính thức tốt nghiệp và nhận bằng Cử nhân.</p>
+            </div>
+          </li>
+          <li class="spread-item">
+            <p class="pos">Chặng đường 03</p>
+            <div class="tcard">
+              <svg viewBox="0 0 200 330" aria-hidden="true">
+                <use href="#cardMagician" />
+              </svg>
+              <span class="tc-title">Kỹ Sư Phần Mềm</span>
+            </div>
+            <div class="spread-text">
+              <h3>Khởi đầu mới</h3>
+              <p>Biến ý tưởng thành những sản phẩm phần mềm giá trị và hữu ích.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <section class="section invite" id="thu-moi">
+      <div class="wrap">
+        <div class="envelope" id="envelope">
+          <div class="env-flap" aria-hidden="true"></div>
+          <div class="seal" aria-hidden="true"><svg viewBox="0 0 40 40">
+              <use href="#spark" />
+            </svg></div>
+          <article class="letter">
+            <p class="kicker">Thư mời</p>
+            <h2 class="letter-h">Trân trọng kính mời bạn đến dự lễ tốt nghiệp của mình</h2>
+            <p class="letter-name">Nguyễn Bùi Hoàng Phúc</p>
+            <p class="letter-major">Ngành Kỹ thuật Phần mềm · Đại học FPT TP.HCM</p>
+            <p class="countdown" id="countdown" aria-live="polite"><span id="cdPre">Còn</span> <b id="cdNum">10</b>
+              <span id="cdPost">ngày</span>
+            </p>
+            <dl class="details">
+              <div>
+                <dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="16" rx="3" />
+                    <path d="M3 10h18M8 3v4M16 3v4" />
+                  </svg>Ngày</dt>
+                <dd>Thứ Bảy, 07.11.2026</dd>
+              </div>
+              <div>
+                <dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" />
+                  </svg>Giờ</dt>
+                <dd>Từ 17h<span>Lúc đó mình vừa nhận bằng xong, mời bạn đến chung vui cùng mình</span></dd>
+              </div>
+              <div>
+                <dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                    <circle cx="12" cy="9.5" r="2.5" />
+                  </svg>Địa điểm</dt>
+                <dd>Trường Đại học FPT TP.HCM<span>Lô E2a-7, Đường D1, Khu Công nghệ cao, TP.HCM</span></dd>
+              </div>
+            </dl>
+            <a class="btn btn-yellow"
+              href="https://www.google.com/maps/search/?api=1&amp;query=FPT+University+Ho+Chi+Minh+City" target="_blank"
+              rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg>
+              Xem đường đi
+            </a>
+            <p class="closing">Sự có mặt của bạn là niềm vinh hạnh và món quà ý nghĩa nhất với mình. Hẹn gặp bạn tại
+              trường nhé!</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p><b>Nguyễn Bùi Hoàng Phúc</b> · Lễ tốt nghiệp 07.11.2026</p>
+    </div>
+  </footer>
+
+  <script src="js/sprite.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
